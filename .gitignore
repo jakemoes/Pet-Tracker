@@ -1,0 +1,46 @@
+# Built application files
+*.apk
+*.ap_ 
+
+# Files for Android Studio
+.idea/
+*.iml
+.gradle/
+local.properties
+*.hprof
+
+# User-specific files
+*.log
+*.swp
+*.swo
+
+# Build directories
+/build/
+*/build/
+bin/
+out/
+
+# Gradle files
+gradle-wrapper.jar
+gradle-wrapper.properties
+.gradle/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# JetBrains Rider or IntelliJ IDEA files
+*.ipr
+*.iws
+.idea/
+
+# Miscellaneous
+*.class
+*.jar
+*.war
+*.ear
+*.so
+*.dylib
+*.a
+*.lo
+*.la
