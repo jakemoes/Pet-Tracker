@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PetTracker"
         tools:targetApi="31">
         <activity
+            android:name=".AddAnimal"
+            android:exported="false" />
+        <activity
             android:name=".Wellcome"
             android:exported="true">
             <intent-filter>
