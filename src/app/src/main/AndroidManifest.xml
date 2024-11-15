@@ -16,7 +16,7 @@
             android:name=".AddAnimal"
             android:exported="false" />
         <activity
-            android:name=".Wellcome"
+            android:name=".Welcome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
