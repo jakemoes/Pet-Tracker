@@ -43,6 +43,25 @@
         app:strokeColor="@color/main"
         android:backgroundTint="@color/main"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_btn_add"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:text="+"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:iconSize="40dp"
+        app:cornerRadius="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cat_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/main"
+        android:backgroundTint="@color/main"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
