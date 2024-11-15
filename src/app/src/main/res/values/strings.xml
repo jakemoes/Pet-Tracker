@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PetTracker</string>
+
+    <!--Add Pet _ Drop Down _ @+id/sd_Animal-->
+    <string-array name="animal_types">
+        <item>Katze</item>
+        <item>Hund</item>
+    </string-array>
+
 </resources>
