@@ -101,7 +101,8 @@ public class AddAnimal extends AppCompatActivity {
 
                 if(success) {
                     Animal animal = new Animal(name, age,imageId,animalKind);
-
+                    Welcome welcome = new Welcome();
+                    welcome.addAnimal(animal);
                     Intent intent = new Intent(AddAnimal.this, Welcome.class);
                     startActivity(intent);
                 }
