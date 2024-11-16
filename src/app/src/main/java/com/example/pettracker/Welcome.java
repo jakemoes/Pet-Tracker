@@ -10,7 +10,10 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class Welcome extends AppCompatActivity {
+    private ArrayList<Animal> animals = new ArrayList<Animal>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +33,8 @@ public class Welcome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public void addAnimal(Animal newAnimal){
+        animals.add(newAnimal);
     }
 }
