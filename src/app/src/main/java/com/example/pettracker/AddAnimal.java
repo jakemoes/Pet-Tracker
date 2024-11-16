@@ -82,8 +82,9 @@ public class AddAnimal extends AppCompatActivity {
                 }
 
 
+                int age = 0;
                 try{
-                    int age = Integer.parseInt(editTextAge.getText().toString());
+                    age = Integer.parseInt(editTextAge.getText().toString());
                 }catch(NumberFormatException e){
                     success = false;
                     editTextAge.setText("");
@@ -98,12 +99,9 @@ public class AddAnimal extends AppCompatActivity {
 
 
 
-
-
-
-
-
                 if(success) {
+                    Animal animal = new Animal(name, age,imageId,animalKind);
+
                     Intent intent = new Intent(AddAnimal.this, Welcome.class);
                     startActivity(intent);
                 }
