@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- For Button -->
+    <dimen name="icon_size">40dp</dimen>
+    <dimen name="corner_radius">15dp</dimen>
+    <dimen name="button_height">75dp</dimen>
+
+    <!-- Margin button -->
+    <dimen name="margin_left">15dp</dimen>
+    <dimen name="margin_right">15dp</dimen>
+
+</resources>

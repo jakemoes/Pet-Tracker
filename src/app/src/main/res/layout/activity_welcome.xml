@@ -18,37 +18,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:textSize="40sp"
         android:textStyle="bold"
         />
 
-    <!--Cat Button-->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_cat_1"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+
+    <!--Text when no buttons ther-->
+    <LinearLayout
+        android:id="@+id/ll_textContainer"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="15dp"
-        android:text="Cat 1"
-        android:textSize="20sp"
-        app:icon="@drawable/cat_01"
-        app:iconTint="@color/white"
-        android:textColor="@color/white"
-        android:gravity="start|center_vertical"
-        app:iconSize="40dp"
-        app:cornerRadius="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_heading"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/main"
-        android:backgroundTint="@color/main"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="300dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"/>
+
+
+    <!--Buttons-->
+    <ScrollView
+        android:id="@+id/sv_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:contentDescription="Pets"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"
+        android:layout_marginTop="15dp">
+        <LinearLayout
+        android:id="@+id/ll_buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"/>
+    </ScrollView>
+
 
     <!--Add Button-->
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_btn_add"
+        android:id="@+id/btn_add"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="50dp"
         android:layout_height="60dp"
@@ -60,10 +66,33 @@
         android:textColor="@color/white"
         app:iconSize="40dp"
         app:cornerRadius="100dp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cat_1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="@color/main"
+        android:backgroundTint="@color/main"
+        android:layout_margin="100dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_delete"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="15dp"
+        android:text="-"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:iconSize="40dp"
+        app:cornerRadius="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeColor="@color/main"
         android:backgroundTint="@color/main"/>
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

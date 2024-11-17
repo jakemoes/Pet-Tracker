@@ -1,5 +1,6 @@
 package com.example.pettracker;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class AddAnimal extends AppCompatActivity {
 
+    private  Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,8 @@ public class AddAnimal extends AppCompatActivity {
         EditText editTextAge = findViewById(R.id.et_catAge);
         Spinner spinnerEmoji = findViewById(R.id.s_emoji);
         Spinner spinnerAnimal = findViewById(R.id.s_Animal);
+
+        context = this;
 
         //Spinner AnimalType
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -101,8 +105,9 @@ public class AddAnimal extends AppCompatActivity {
 
                 if(success) {
                     Animal animal = new Animal(name, age,imageId,animalKind);
-                    Welcome welcome = new Welcome();
-                    welcome.addAnimal(animal);
+                    CSVHandler csvHandler = new CSVHandler();
+                    csvHandler.writeAnimalCSV(context , animal);
+
                     Intent intent = new Intent(AddAnimal.this, Welcome.class);
                     startActivity(intent);
                 }
