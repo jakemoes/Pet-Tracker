@@ -87,7 +87,6 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
         android:text="Save"
         android:textSize="20sp"
         android:textColor="@color/white"
@@ -96,6 +95,7 @@
         app:strokeColor="@color/main"
         android:backgroundTint="@color/main"/>
 
+
     <!--Save Button-->
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -103,12 +103,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Container for fragment views -->
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/bottom_navigation" />
 
         <!-- BottomNavigationView -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -121,6 +115,15 @@
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
             android:background="@color/main" />
+
+        <!-- Side Indicator View -->
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/indicator_color"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"/>
     </RelativeLayout>
 
 

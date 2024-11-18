@@ -11,14 +11,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.pettracker.R;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import androidx.fragment.app.Fragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Locale;
@@ -37,10 +38,38 @@ public class Entry extends AppCompatActivity {
             return insets;
         });
 
+        //Nav Bar
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        //View indicator = findViewById(R.id.indicator);
+        bottomNavigationView.setSelectedItemId(R.id.entry);
 
+
+        // Setze den Listener für das Klicken auf die einzelnen Tabs
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.main:
+                    startActivity(new Intent(Entry.this, Welcome.class));
+                    return true;
+                case R.id.course:
+                    startActivity(new Intent(Entry.this, Welcome.class));
+                    return true;
+                case R.id.entry:
+                    startActivity(new Intent(Entry.this, Entry.class));
+                    return true;
+                case R.id.appointments:
+                    startActivity(new Intent(Entry.this, Welcome.class));
+                    return true;
+            }
+            return false;
+        });
+
+
+
+        //get Variable form main
         Intent intent = getIntent();
         name = intent.getStringExtra("NAME");
 
+        //Defining VAriables
         Button saveButton = findViewById(R.id.btn_save);
         Spinner s_stool = findViewById(R.id.s_stool);
         Spinner s_vomit = findViewById(R.id.s_vomit);

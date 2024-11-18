@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/main"
         android:icon="@drawable/home"
         android:title="Home" />
 
     <item
         android:id="@+id/entry"
         android:icon="@drawable/pencil"
-        android:title="Search" />
+        android:title="Entry" />
 
     <item
-        android:id="@+id/graph"
+        android:id="@+id/course"
         android:icon="@drawable/graph"
-        android:title="Notifications" />
+        android:title="Course" />
 
     <item
         android:id="@+id/appointments"
         android:icon="@drawable/calender"
-        android:title="Profile" />
+        android:title="appointments" />
 
 </menu>
