@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class CSVHandler {
 
+    //ADD ANIMAL
     //Add animal to List
 public void writeAnimalCSV(Context context, Animal animal){
     String csvFileName = "animal.csv";
@@ -84,6 +85,20 @@ public void writeAnimalCSV(Context context, Animal animal){
         } else {
             // Datei existiert nicht
             Toast.makeText(context, "Datei existiert nicht", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //ENTRY
+    public void writeEntryCSV(Context context, EntryData entry){
+        String csvFileName = "entry.csv";
+        File csvFile = new File(context.getFilesDir(), csvFileName);
+
+        File csvAnimals = new File(csvFileName);
+        try (FileWriter writer = new FileWriter(csvFile, true)) {
+            // Daten in die CSV-Datei schreiben
+            writer.append( entry.getNote() + ";" + entry.getFood() + ";" + entry.getVomit() + ";" + entry.getStool() + ";" + entry.getVomit() + ";" + entry.getDate() +"\n");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
