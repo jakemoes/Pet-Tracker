@@ -60,7 +60,7 @@
         android:layout_marginHorizontal="15dp"
         />
 
-    <!--Save Button-->
+    <!--Note-->
     <EditText
         android:id="@+id/et_Note"
         android:layout_width="match_parent"
@@ -77,6 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_food"
         tools:layout_editor_absoluteX="15dp" />
 
+    <!--Save Button-->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_save"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -94,5 +95,33 @@
         app:cornerRadius="15dp"
         app:strokeColor="@color/main"
         android:backgroundTint="@color/main"/>
+
+    <!--Save Button-->
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Container for fragment views -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_navigation" />
+
+        <!-- BottomNavigationView -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_navigation_menu"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            android:background="@color/main" />
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
