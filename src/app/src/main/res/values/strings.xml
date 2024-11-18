@@ -7,4 +7,18 @@
         <item>Hund</item>
     </string-array>
 
+    <string-array name="stool">
+        <item>soft</item>
+        <item>normal</item>
+        <item>hard</item>
+    </string-array>
+
+    <string-array name="vomet">
+        <item>no</item>
+        <item>a little bit</item>
+        <item>a lot</item>
+    </string-array>
+
+
+
 </resources>

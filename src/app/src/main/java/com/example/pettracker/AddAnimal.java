@@ -59,6 +59,12 @@ public class AddAnimal extends AppCompatActivity {
         items.add(new DropdownEmoji(R.drawable.cat_01, "Standard"));
         items.add(new DropdownEmoji(R.drawable.cat_02, "Liegend"));
         items.add(new DropdownEmoji(R.drawable.cat_03, "Süß"));
+        items.add(new DropdownEmoji(R.drawable.cat_04, "Smiling"));
+        items.add(new DropdownEmoji(R.drawable.cat_05, "Sitting"));
+        items.add(new DropdownEmoji(R.drawable.dog_01, "Sitting"));
+        items.add(new DropdownEmoji(R.drawable.dog_02, "Standard"));
+        items.add(new DropdownEmoji(R.drawable.dog_03, "Sitting"));
+        items.add(new DropdownEmoji(R.drawable.dog_04, "Laughing"));
         DropdownEmojiAdapter emojiAdapter = new DropdownEmojiAdapter(this, items);
         spinnerEmoji.setAdapter(emojiAdapter);
 
