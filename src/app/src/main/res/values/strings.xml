@@ -14,7 +14,7 @@
     </string-array>
 
     <string-array name="vomit">
-        <item>no</item>
+        <item>none</item>
         <item>a little bit</item>
         <item>a lot</item>
     </string-array>

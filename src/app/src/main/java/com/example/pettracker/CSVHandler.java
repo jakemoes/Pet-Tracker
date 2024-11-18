@@ -96,7 +96,7 @@ public void writeAnimalCSV(Context context, Animal animal){
         File csvAnimals = new File(csvFileName);
         try (FileWriter writer = new FileWriter(csvFile, true)) {
             // Daten in die CSV-Datei schreiben
-            writer.append( entry.getNote() + ";" + entry.getFood() + ";" + entry.getVomit() + ";" + entry.getStool() + ";" + entry.getVomit() + ";" + entry.getDate() +"\n");
+            writer.append( entry.getNote() + ";" + entry.getFood() + ";" + entry.getVomit() + ";" + entry.getStool() + ";" + entry.getVomit() + ";" + entry.getDate() + ";" + entry.getName() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }

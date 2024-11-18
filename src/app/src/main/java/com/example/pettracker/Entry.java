@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +24,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Entry extends AppCompatActivity {
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +35,17 @@ public class Entry extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
         });
+
+
+        Intent intent = getIntent();
+        name = intent.getStringExtra("NAME");
 
         Button saveButton = findViewById(R.id.btn_save);
         Spinner s_stool = findViewById(R.id.s_stool);
         Spinner s_vomit = findViewById(R.id.s_vomit);
+        TextView heading = findViewById(R.id.tv_heading);
+        heading.setText(name);
 
         //Spinner AnimalType
         ArrayAdapter<CharSequence> adapter_stool = ArrayAdapter.createFromResource(this,
@@ -49,8 +56,8 @@ public class Entry extends AppCompatActivity {
 
         ArrayAdapter<CharSequence> adapter_vomit = ArrayAdapter.createFromResource(this,
                 R.array.vomit, android.R.layout.simple_spinner_item);
-        adapter_stool.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s_vomit.setAdapter(adapter_stool);
+        adapter_vomit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s_vomit.setAdapter(adapter_vomit);
 
         // On Click cancel Button
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +85,7 @@ public class Entry extends AppCompatActivity {
         if(success){
             Context context = this;
             LocalDate date = LocalDate.now();
-            EntryData entryData = new EntryData(note, food, vomit, stool, date);
+            EntryData entryData = new EntryData(note, food, vomit, stool, date, name);
             CSVHandler csvHandler = new CSVHandler();
             csvHandler.writeEntryCSV(context, entryData);
             Toast.makeText(context, "Daten gespeichert!", Toast.LENGTH_SHORT).show();

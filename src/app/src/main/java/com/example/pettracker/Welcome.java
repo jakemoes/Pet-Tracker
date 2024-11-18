@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class Welcome extends AppCompatActivity {
     private ArrayList<Animal> animals = new ArrayList<Animal>();
     private LinearLayout ll_textContainer;
     private LinearLayout ll_buttonContainer;
+    //private MaterialButton button = new MaterialButton(this);
 
     private ScrollView sv_buttons;
     private ArrayList<Button> buttons = new ArrayList<Button>();
@@ -61,11 +63,14 @@ public class Welcome extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Show a toast message when the button is clicked
                 Intent intent = new Intent(Welcome.this, AddAnimal.class);
                 startActivity(intent);
             }
         });
+
+
+
+
     }
     public void addAnimal(Animal newAnimal){
         animals.add(newAnimal);
@@ -73,11 +78,14 @@ public class Welcome extends AppCompatActivity {
 
 
     //AddButton (with ico and catname)
-    private void addButtons(String text, int resId) {
+    private void addButtons(String text, int resId, int number) {
         ll_textContainer.setVisibility(View.INVISIBLE);
 
         // Create a new button
         MaterialButton button = new MaterialButton(this);
+
+        button.setId(number);
+
         //Text style
         button.setText(text);
         button.setTextSize(20);
@@ -115,6 +123,18 @@ public class Welcome extends AppCompatActivity {
 
         // Füge den Button zum Layout hinzu
         ll_buttonContainer.addView(button);
+
+
+        //Wenn eine Katze angeklickt wird
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tag = text;
+                Intent intent = new Intent(Welcome.this, Entry.class);
+                intent.putExtra("NAME", text);
+                startActivity(intent);
+            }
+        });
     }
 
     //Add button
@@ -141,8 +161,10 @@ public class Welcome extends AppCompatActivity {
             addTextMessage();
         }
         else {
+            int counter = 0;
             for(Animal animal : animals) {
-                addButtons(animal.getName(),animal.getImageResId());
+                addButtons(animal.getName(),animal.getImageResId(), counter);
+                counter ++;
             }
         }
     }

@@ -9,15 +9,18 @@ public class EntryData {
     private String vomit;
     private String stool;
     private LocalDate date;
+    private String name;
 
     public EntryData() {
     }
 
-    public EntryData(String note, String food, String vomit, String stool, LocalDate date) {
+    public EntryData(String note, String food, String vomit, String stool, LocalDate date, String name) {
         this.note = note;
         this.food = food;
         this.vomit = vomit;
         this.stool = stool;
+        this.date = date;
+        this.name = name;
     }
 
     // Getter und Setter
@@ -59,5 +62,13 @@ public class EntryData {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
