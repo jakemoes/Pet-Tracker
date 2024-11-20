@@ -16,6 +16,9 @@
         android:theme="@style/Theme.PetTracker"
         tools:targetApi="31">
         <activity
+            android:name=".AddAppointment"
+            android:exported="false" />
+        <activity
             android:name=".Appointments"
             android:exported="false" />
         <activity
