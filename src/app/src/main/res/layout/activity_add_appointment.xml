@@ -59,7 +59,7 @@
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/chooseDate"
+        android:id="@+id/btn_chooseDate"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -99,7 +99,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/chooseRememberDate"
+        android:id="@+id/btn_chooseRememberDate"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -133,18 +133,20 @@
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/et_remember"
-        tools:layout_editor_absoluteX="15dp" />
+        tools:layout_editor_absoluteX="15dp"
+        android:imeOptions="actionDone"
+        android:inputType="text"/>
 
     <!--Save Button-->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_save"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:layout_constraintTop_toBottomOf="@id/et_Note"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         android:text="Save"
         android:textSize="20sp"
         android:textColor="@color/white"
@@ -154,14 +156,14 @@
         android:backgroundTint="@color/main"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_btn_cancel"
+        android:id="@+id/btn_cancel"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:layout_constraintTop_toBottomOf="@id/et_Note"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
         android:text="cancel"
         android:textSize="20sp"
         android:textColor="@color/white"

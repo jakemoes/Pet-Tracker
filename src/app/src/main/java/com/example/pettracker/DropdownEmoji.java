@@ -1,15 +1,15 @@
 package com.example.pettracker;
 
 public class DropdownEmoji {
-    private int imageResId;
+    private Integer imageResId;
     private String text;
 
-    public DropdownEmoji(int imageResId, String text) {
+    public DropdownEmoji(Integer imageResId, String text) {
         this.imageResId = imageResId;
         this.text = text;
     }
 
-    public int getImageResId() {
+    public Integer getImageResId() {
         return imageResId;
     }
 

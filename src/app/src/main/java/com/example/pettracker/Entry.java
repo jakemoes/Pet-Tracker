@@ -1,10 +1,12 @@
 package com.example.pettracker;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,6 +46,7 @@ public class Entry extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.entry);
 
 
+
         // Setze den Listener für das Klicken auf die einzelnen Tabs
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
@@ -54,10 +57,30 @@ public class Entry extends AppCompatActivity {
                     startActivity(new Intent(Entry.this, Welcome.class));
                     return true;
                 case R.id.appointments:
-                    startActivity(new Intent(Entry.this, Appointments.class));
+                    Intent toAppointments = new Intent(Entry.this, Appointments.class);
+                    toAppointments.putExtra("NAME", name);
+                    startActivity(toAppointments);
                     return true;
             }
             return false;
+        });
+
+        // Hide the keyboard when the user taps the "Done" button
+        EditText editTextNote = findViewById(R.id.et_Note);
+        editTextNote.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE ||
+                        (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+                    // Hide the keyboard
+                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    if (imm != null) {
+                        imm.hideSoftInputFromWindow(editTextNote.getWindowToken(), 0);
+                    }
+                    return true;
+                }
+                return false;
+            }
         });
 
 
@@ -66,7 +89,7 @@ public class Entry extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra("NAME");
 
-        //Defining VAriables
+        //Defining Variables
         Button saveButton = findViewById(R.id.btn_save);
         Spinner s_stool = findViewById(R.id.s_stool);
         Spinner s_vomit = findViewById(R.id.s_vomit);
@@ -89,6 +112,7 @@ public class Entry extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                saveData();
             }
         });
     }
@@ -108,15 +132,29 @@ public class Entry extends AppCompatActivity {
             success = false;
             showMessageBox("Bitte fülle das Feld Futter aus");
         }
+
+        if(stool.equals("Wähle die Art das Stuhles")){
+            success = false;
+            showMessageBox("Bitte wähle die Art des Stuhls aus");
+        }
+
+        if(vomit.equals("Wähle die Art des Erbrochenen")){
+            success = false;
+            showMessageBox("Bitte wähle die Art des Erbrechens aus");
+        }
+
+
         if(success){
             Context context = this;
             LocalDate date = LocalDate.now();
             EntryData entryData = new EntryData(note, food, vomit, stool, date, name);
             CSVHandler csvHandler = new CSVHandler();
             csvHandler.writeEntryCSV(context, entryData);
-            Toast.makeText(context, "Daten gespeichert!", Toast.LENGTH_SHORT).show();
             et_food.setText("");
-            et_food.setText("");
+            et_note.setText("");
+            s_stool.setSelection(0);
+            s_vomit.setSelection(0);
+            Toast.makeText(Entry.this, "Daten gespeichert!", Toast.LENGTH_SHORT).show();
         }
     }
     private void showMessageBox(String message) {

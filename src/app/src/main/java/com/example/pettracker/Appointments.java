@@ -26,6 +26,7 @@ public class Appointments extends AppCompatActivity {
     private LinearLayout ll_buttonContainer;
     private LinearLayout ll_textContainer;
     private ArrayList<AppointmentData> appointments= new ArrayList<AppointmentData>();
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,8 @@ public class Appointments extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        name = getIntent().getStringExtra("NAME");
 
         //Nav Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -54,18 +57,30 @@ public class Appointments extends AppCompatActivity {
                     startActivity(new Intent(Appointments.this, Welcome.class));
                     return true;
                 case R.id.entry:
-                    startActivity(new Intent(Appointments.this, Entry.class));
+                    Intent startEntry = new Intent(Appointments.this, Entry.class);
+                    startEntry.putExtra("NAME", name);
+                    startActivity(startEntry);
                     return true;
             }
             return false;
         });
 
+        MaterialButton addButton = findViewById(R.id.btn_add);
 
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startAddAppointment = new Intent(Appointments.this, AddAppointment.class);
+                startAddAppointment.putExtra("NAME", name);
+                startActivity(startAddAppointment);
+            }
+        });
 
 
         CSVHandler csvHandler = new CSVHandler();
         appointments = csvHandler.getAppointmentsFromCSV(this);
         ll_textContainer = findViewById(R.id.ll_textContainer);
+        ll_buttonContainer = findViewById(R.id.ll_buttonContainer);
         ViewHandler();
     }
     //Add Termin
@@ -85,13 +100,13 @@ public class Appointments extends AppCompatActivity {
         button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.main)); // Background color
         button.setStrokeColorResource(R.color.main); // Stroke color
         button.setCornerRadius(getResources().getDimensionPixelSize(R.dimen.corner_radius)); // Corner radius
-        button.setGravity(Gravity.START | Gravity.CENTER_VERTICAL); // Align text and icon
+        //button.setGravity(Gravity.START | Gravity.CENTER_VERTICAL); // Align text and icon
 
         // Add the button to the container
-        // Erstelle LayoutParams fÃ¼r den Button
+        // Erstelle LayoutParams für den Button
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,  // Breite auf Match-Parent setzen
-                ViewGroup.LayoutParams.WRAP_CONTENT  // HÃ¶he wird basierend auf dem Inhalt angepasst
+                300  // HÃ¶he wird basierend auf dem Inhalt angepasst
         );
 
         // Setze die Margins (Abstand auf der linken und rechten Seite)
@@ -101,10 +116,10 @@ public class Appointments extends AppCompatActivity {
         // Setze die Margins auf den LayoutParams
         layoutParams.setMargins(leftMargin, 0, rightMargin, 0); // (left, top, right, bottom)
 
-        // FÃ¼ge den Button mit den LayoutParams hinzu
+        // Füge den Button mit den LayoutParams hinzu
         button.setLayoutParams(layoutParams);
 
-        // FÃ¼ge den Button zum Layout hinzu
+        // Füge den Button zum Layout hinzu
         ll_buttonContainer.addView(button);
 
 

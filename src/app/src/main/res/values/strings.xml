@@ -3,17 +3,20 @@
 
     <!--Add Pet _ Drop Down _ @+id/sd_Animal-->
     <string-array name="animal_types">
+        <item>Wähle eine Tierart</item>
         <item>Katze</item>
         <item>Hund</item>
     </string-array>
 
     <string-array name="stool">
+        <item>Wähle die Art das Stuhles</item>
         <item>soft</item>
         <item>normal</item>
         <item>hard</item>
     </string-array>
 
     <string-array name="vomit">
+        <item>Wähle die Art des Erbrochenen</item>
         <item>none</item>
         <item>a little bit</item>
         <item>a lot</item>

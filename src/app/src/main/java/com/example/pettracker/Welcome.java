@@ -3,6 +3,7 @@
 package com.example.pettracker;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -27,6 +29,7 @@ public class Welcome extends AppCompatActivity {
     private LinearLayout ll_textContainer;
     private LinearLayout ll_buttonContainer;
     //private MaterialButton button = new MaterialButton(this);
+    int result = 0;
 
     private ScrollView sv_buttons;
     private ArrayList<Button> buttons = new ArrayList<Button>();
@@ -53,9 +56,23 @@ public class Welcome extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Delet File
-                CSVHandler csvHandler = new CSVHandler();
-                csvHandler.deleteFile(context);
+                showDialogDeleteAll("Möchtest du wirklich alle Tiere löschen?", new DialogResultListener() {
+                    @Override
+                    public void onDialogResult(int result) {
+                        if (result == 1) {
+                            //Delete File
+                            CSVHandler csvHandler = new CSVHandler();
+                            csvHandler.deleteAnimalFile(context);
+                            csvHandler.deleteEntryFile(context);
+                            csvHandler.deleteAppointmentFile(context);
+                            Intent intent = new Intent(Welcome.this, Welcome.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(Welcome.this, "Abbruch: Tiere wurden nicht gelöscht.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 
@@ -67,10 +84,6 @@ public class Welcome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
     }
     public void addAnimal(Animal newAnimal){
         animals.add(newAnimal);
@@ -88,35 +101,33 @@ public class Welcome extends AppCompatActivity {
 
         //Text style
         button.setText(text);
-        button.setTextSize(20);
+        button.setTextSize(25);
         button.setTextColor(getResources().getColor(R.color.white));
 
         // Set button icon
         button.setIconResource(resId);
+        button.setIconSize(60);
         button.setIconTintResource(R.color.white);
         button.setIconSize(getResources().getDimensionPixelSize(R.dimen.icon_size));
 
         // Set button styling
         button.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.main)); // Background color
-        button.setStrokeColorResource(R.color.main); // Stroke color
+        button.setStrokeColorResource(R.color.main);
         button.setCornerRadius(getResources().getDimensionPixelSize(R.dimen.corner_radius)); // Corner radius
         button.setGravity(Gravity.START | Gravity.CENTER_VERTICAL); // Align text and icon
-
-
 
         // Add the button to the container
         // Erstelle LayoutParams für den Button
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,  // Breite auf Match-Parent setzen
-                ViewGroup.LayoutParams.WRAP_CONTENT  // Höhe wird basierend auf dem Inhalt angepasst
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                250
         );
 
-        // Setze die Margins (Abstand auf der linken und rechten Seite)
-        int leftMargin = getResources().getDimensionPixelSize(R.dimen.margin_left); // Linker Abstand (in Pixel)
-        int rightMargin = getResources().getDimensionPixelSize(R.dimen.margin_right); // Rechter Abstand (in Pixel)
+        int leftMargin = getResources().getDimensionPixelSize(R.dimen.margin_left);
+        int rightMargin = getResources().getDimensionPixelSize(R.dimen.margin_right);
 
         // Setze die Margins auf den LayoutParams
-        layoutParams.setMargins(leftMargin, 0, rightMargin, 0); // (left, top, right, bottom)
+        layoutParams.setMargins(leftMargin, 0, rightMargin, 0);
 
         // Füge den Button mit den LayoutParams hinzu
         button.setLayoutParams(layoutParams);
@@ -129,9 +140,9 @@ public class Welcome extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String tag = text;
+                String name = text;
                 Intent intent = new Intent(Welcome.this, Entry.class);
-                intent.putExtra("NAME", text);
+                intent.putExtra("NAME", name);
                 startActivity(intent);
             }
         });
@@ -167,5 +178,26 @@ public class Welcome extends AppCompatActivity {
                 counter ++;
             }
         }
+    }
+    private void showDialogDeleteAll(String text, DialogResultListener listener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(text)
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        listener.onDialogResult(1);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        listener.onDialogResult(0);
+                    }
+                });
+        // Create and show the dialog
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    public interface DialogResultListener {
+        void onDialogResult(int result);
     }
 }

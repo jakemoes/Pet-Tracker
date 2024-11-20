@@ -70,7 +70,7 @@ public void writeAnimalCSV(Context context, Animal animal){
     }
 
     //Delete all Cats
-    public void deleteFile(Context context) {
+    public void deleteAnimalFile(Context context) {
         // Pfad zur Datei
         File file = new File(context.getFilesDir(), "animal.csv");
 
@@ -104,6 +104,26 @@ public void writeAnimalCSV(Context context, Animal animal){
         }
     }
 
+    public void deleteEntryFile(Context context) {
+        // Pfad zur Datei
+        File file = new File(context.getFilesDir(), "entry.csv");
+
+        // Überprüfen, ob die Datei existiert
+        if (file.exists()) {
+            boolean deleted = file.delete();
+            if (deleted) {
+                // Erfolgreich gelöscht
+                Toast.makeText(context, "Datei wurde gelöscht", Toast.LENGTH_SHORT).show();
+            } else {
+                // Fehler beim Löschen
+                Toast.makeText(context, "Fehler beim Löschen der Datei", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            // Datei existiert nicht
+            Toast.makeText(context, "Datei existiert nicht", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 
     //APPOINTMENT
@@ -111,20 +131,16 @@ public void writeAnimalCSV(Context context, Animal animal){
         ArrayList<AppointmentData> appointments = new ArrayList<>();
         File csvFile = new File(context.getFilesDir(), "appointment.csv");
 
-        // ÃœberprÃ¼fen, ob die Datei existiert
         if (!csvFile.exists()) {
-            return appointments; // RÃ¼ckgabe einer leeren Liste, wenn keine Datei vorhanden ist
+            return appointments;
         }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Jede Zeile in die Teile aufsplitten, basierend auf dem Trennzeichen ";"
                 String[] animalData = line.split(";");
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-                // Sicherstellen, dass die Zeile korrekt formatiert ist
                 if (animalData.length == 5) {
                     String title = animalData[0];
                     LocalDateTime apointmentTime = null;
@@ -144,7 +160,6 @@ public void writeAnimalCSV(Context context, Animal animal){
                     String note = animalData[3];
                     String name = animalData[4];
 
-                    // Ein neues Animal-Objekt erstellen und zur Liste hinzufÃ¼gen
                     appointments.add(new AppointmentData(title, apointmentTime, reminderTime, note, name));
                 }
             }
@@ -154,5 +169,35 @@ public void writeAnimalCSV(Context context, Animal animal){
 
         return appointments;
     }
+    public void writeAppointmentCSV(Context context, AppointmentData appointment){
+        String csvFileName = "appointment.csv";
+        File csvFile = new File(context.getFilesDir(), csvFileName);
 
+        File csvAnimals = new File(csvFileName);
+        try (FileWriter writer = new FileWriter(csvFile, true)) {
+            // Daten in die CSV-Datei schreiben
+            writer.append(appointment.getTitel() + ";" + appointment.getDate()+ ";" + appointment.getRemeberDate() + ";" + appointment.getNote() + ";" + appointment.getCatName() + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void deleteAppointmentFile(Context context) {
+        // Pfad zur Datei
+        File file = new File(context.getFilesDir(), "appointment.csv");
+
+        // Überprüfen, ob die Datei existiert
+        if (file.exists()) {
+            boolean deleted = file.delete();
+            if (deleted) {
+                // Erfolgreich gelöscht
+                Toast.makeText(context, "Datei wurde gelöscht", Toast.LENGTH_SHORT).show();
+            } else {
+                // Fehler beim Löschen
+                Toast.makeText(context, "Fehler beim Löschen der Datei", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            // Datei existiert nicht
+            Toast.makeText(context, "Datei existiert nicht", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
