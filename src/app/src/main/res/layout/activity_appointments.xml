@@ -7,4 +7,65 @@
     android:layout_height="match_parent"
     tools:context=".Appointments">
 
+    <!--Heading-->
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Termine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_goneMarginTop="20dp"
+        />
+
+    <!--Add Button-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:text="+"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:iconSize="40dp"
+        app:cornerRadius="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="25dp"
+        app:strokeColor="@color/main"
+        android:backgroundTint="@color/main" />
+
+    <!--Buttons-->
+    <ScrollView
+        android:id="@+id/sv_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:contentDescription="Pets"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"
+        android:layout_marginTop="15dp">
+        <LinearLayout
+            android:id="@+id/ll_buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_heading"/>
+    </ScrollView>
+
+    <!--Text when no buttons there-->
+    <LinearLayout
+        android:id="@+id/ll_textContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="200dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
