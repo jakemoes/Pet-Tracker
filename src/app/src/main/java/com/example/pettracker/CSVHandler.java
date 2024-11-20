@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class CSVHandler {
@@ -100,6 +102,57 @@ public void writeAnimalCSV(Context context, Animal animal){
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    //APPOINTMENT
+    public static ArrayList<AppointmentData> getAppointmentsFromCSV(Context context) {
+        ArrayList<AppointmentData> appointments = new ArrayList<>();
+        File csvFile = new File(context.getFilesDir(), "appointment.csv");
+
+        // ÃœberprÃ¼fen, ob die Datei existiert
+        if (!csvFile.exists()) {
+            return appointments; // RÃ¼ckgabe einer leeren Liste, wenn keine Datei vorhanden ist
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Jede Zeile in die Teile aufsplitten, basierend auf dem Trennzeichen ";"
+                String[] animalData = line.split(";");
+
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+                // Sicherstellen, dass die Zeile korrekt formatiert ist
+                if (animalData.length == 5) {
+                    String title = animalData[0];
+                    LocalDateTime apointmentTime = null;
+                    try {
+                        apointmentTime = LocalDateTime.parse(animalData[1]);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    LocalDateTime reminderTime = null;
+                    try {
+                        reminderTime = LocalDateTime.parse(animalData[2]);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    String note = animalData[3];
+                    String name = animalData[4];
+
+                    // Ein neues Animal-Objekt erstellen und zur Liste hinzufÃ¼gen
+                    appointments.add(new AppointmentData(title, apointmentTime, reminderTime, note, name));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return appointments;
     }
 
 }
