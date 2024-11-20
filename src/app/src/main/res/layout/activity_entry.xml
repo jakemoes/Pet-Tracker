@@ -96,7 +96,7 @@
         android:backgroundTint="@color/main"/>
 
 
-    <!--Save Button-->
+    <!--Menu Bar-->
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"

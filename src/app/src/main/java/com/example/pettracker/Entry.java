@@ -53,11 +53,8 @@ public class Entry extends AppCompatActivity {
                 case R.id.course:
                     startActivity(new Intent(Entry.this, Welcome.class));
                     return true;
-                case R.id.entry:
-                    startActivity(new Intent(Entry.this, Entry.class));
-                    return true;
                 case R.id.appointments:
-                    startActivity(new Intent(Entry.this, Welcome.class));
+                    startActivity(new Intent(Entry.this, Appointments.class));
                     return true;
             }
             return false;

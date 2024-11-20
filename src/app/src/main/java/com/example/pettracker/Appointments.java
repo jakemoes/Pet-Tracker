@@ -15,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
@@ -36,6 +37,32 @@ public class Appointments extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //Nav Bar
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        //View indicator = findViewById(R.id.indicator);
+        bottomNavigationView.setSelectedItemId(R.id.appointments);
+
+
+        // Setze den Listener für das Klicken auf die einzelnen Tabs
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.main:
+                    startActivity(new Intent(Appointments.this, Welcome.class));
+                    return true;
+                case R.id.course:
+                    startActivity(new Intent(Appointments.this, Welcome.class));
+                    return true;
+                case R.id.entry:
+                    startActivity(new Intent(Appointments.this, Entry.class));
+                    return true;
+            }
+            return false;
+        });
+
+
+
+
         CSVHandler csvHandler = new CSVHandler();
         appointments = csvHandler.getAppointmentsFromCSV(this);
         ll_textContainer = findViewById(R.id.ll_textContainer);
