@@ -90,7 +90,7 @@ public class Welcome extends AppCompatActivity {
     }
 
 
-    //AddButton (with ico and catname)
+    //AddButton (with icon and catname)
     private void addButtons(String text, int resId, int number) {
         ll_textContainer.setVisibility(View.INVISIBLE);
 
