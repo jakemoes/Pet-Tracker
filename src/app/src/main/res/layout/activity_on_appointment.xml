@@ -5,7 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".OnAppointment">
+=======
+    tools:context=".OnAppointment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,6 +66,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+<<<<<<< HEAD
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginHorizontal="15dp"
@@ -68,11 +74,24 @@
         android:layout_marginBottom="80dp"
         android:text="back"
         android:textSize="25sp"
+=======
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="80dp"
+        android:text="<"
+        android:textSize="40sp"
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
         android:textColor="@color/white"
         app:iconSize="50dp"
         app:cornerRadius="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
+=======
+        app:layout_marginStart="25dp"
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
         app:strokeColor="@color/main"
         android:backgroundTint="@color/main" />
 
@@ -92,7 +111,12 @@
         android:backgroundTint="@color/delete"
         app:strokeColor="@color/main"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent" />
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_marginEnd="25dp" />
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 
 
     <!--Menu Bar-->

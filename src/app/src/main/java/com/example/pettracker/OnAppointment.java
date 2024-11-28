@@ -1,18 +1,37 @@
 package com.example.pettracker;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+=======
+import android.os.Bundle;
+import android.widget.TextView;
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+<<<<<<< HEAD
 
 import com.google.android.material.button.MaterialButton;
 
+=======
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 import java.util.ArrayList;
 
 

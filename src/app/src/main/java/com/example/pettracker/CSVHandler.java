@@ -1,6 +1,7 @@
 package com.example.pettracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.widget.Toast;
@@ -126,6 +127,34 @@ public void writeAnimalCSV(Context context, Animal animal){
         }
     }
 
+    public ArrayList<EntryData> getEntriesFromCSV(Context context) {
+        ArrayList<EntryData> entries = new ArrayList<>();
+        File csvFile = new File(context.getFilesDir(), "entry.csv");
+
+        if (!csvFile.exists()) {
+            return entries; // leeren Liste rückgeben, wenn keine Datei vorhanden
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] entryData = line.split(";");
+                if (entryData.length == 7) {
+                    String note = entryData[0];
+                    String food = entryData[1];
+                    String vomit = entryData[2];
+                    String stool = entryData[3];
+                    LocalDate date = LocalDate.parse(entryData[4]);
+                    String name = entryData[5];
+                    entries.add(new EntryData(note, food, vomit, stool, date, name));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return entries;
+    }
+
 
 
     //APPOINTMENT
@@ -202,6 +231,11 @@ public void writeAnimalCSV(Context context, Animal animal){
             Toast.makeText(context, "Datei existiert nicht", Toast.LENGTH_SHORT).show();
         }
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
     public void saveAppointmentsToCSV(Context context, ArrayList<AppointmentData> appointments) {
         File csvFile = new File(context.getFilesDir(), "appointment.csv");
 
@@ -220,6 +254,7 @@ public void writeAnimalCSV(Context context, Animal animal){
         }
     }
 
+<<<<<<< HEAD
     public ArrayList<EntryData> getEntriesFromCSV(Context context) {
         ArrayList<EntryData> entries = new ArrayList<>();
         File csvFile = new File(context.getFilesDir(), "entry.csv");
@@ -247,4 +282,6 @@ public void writeAnimalCSV(Context context, Animal animal){
         }
         return entries;
     }
+=======
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 }

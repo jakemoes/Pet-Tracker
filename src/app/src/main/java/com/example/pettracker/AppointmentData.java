@@ -24,7 +24,7 @@ public class AppointmentData {
     }
 
 
-    // Getter and Setter for titel
+    // Getter and Setter for title
     public String getTitel() {
         return titel;
     }

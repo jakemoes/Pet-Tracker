@@ -16,6 +16,15 @@
         android:theme="@style/Theme.PetTracker"
         tools:targetApi="31">
         <activity
+            android:name=".Trend2"
+            android:exported="false" />
+        <activity
+            android:name=".Trend"
+            android:exported="false" />
+        <activity
+            android:name=".OnAppointment"
+            android:exported="false" />
+        <activity
             android:name=".AddAppointment"
             android:exported="false" />
         <activity

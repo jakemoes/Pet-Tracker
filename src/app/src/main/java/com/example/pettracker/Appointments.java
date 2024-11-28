@@ -127,10 +127,16 @@ public class Appointments extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String tag = text;
-                //Intent intent = new Intent(Appointment.this, Entry.class);
-                //intent.putExtra("NAME", text);
-                //startActivity(intent);
+                Intent intent = new Intent(Appointments.this, OnAppointment.class);
+
+                AppointmentData selectedAppointment = appointments.get(number);
+
+                intent.putExtra("TITLE", selectedAppointment.getTitel());
+                intent.putExtra("DATE", selectedAppointment.getDate().toString());
+                intent.putExtra("REMINDER", selectedAppointment.getRemeberDate().toString());
+                intent.putExtra("NOTE", selectedAppointment.getNote());
+
+                startActivity(intent);
             }
         });
     }

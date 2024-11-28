@@ -1,6 +1,9 @@
 package com.example.pettracker;
 
+<<<<<<< HEAD
 import android.content.Context;
+=======
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,9 +49,14 @@ public class Trend2 extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
         Context context = this;
         CSVHandler csvHandler = new CSVHandler();
         List<EntryData> entries = csvHandler.getEntriesFromCSV(context);
+=======
+        CSVHandler csvHandler = new CSVHandler();
+        List<EntryData> entries = csvHandler.getEntriesFromCSV(this);
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 
         // Entries filtern
         List<EntryData> filteredEntries = filterEntriesByName(entries, name);

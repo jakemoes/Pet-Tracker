@@ -4,5 +4,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main">#77C3A5</color>
     <color name="indicator_color">#B3D4C7</color>
+<<<<<<< HEAD
     <color name="delete">#000000</color>
 </resources>
+=======
+    <color name="delete">#53868B</color>
+</resources>
+
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64

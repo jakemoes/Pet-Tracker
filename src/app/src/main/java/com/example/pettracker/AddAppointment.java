@@ -67,7 +67,7 @@ public class AddAppointment extends AppCompatActivity {
             }
         });
 
-        //DateTiem Picker Date
+        //DateTime Picker Date
         btn_date.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
 
@@ -127,6 +127,17 @@ public class AddAppointment extends AppCompatActivity {
             }
         });
     }
+
+    private void goToOnAppointmentActivity(String title, String date, String rememberMe, String note) {
+        Intent intent = new Intent(AddAppointment.this, OnAppointmentActivity.class);
+        intent.putExtra("TITLE", title);
+        intent.putExtra("DATE", date);
+        intent.putExtra("REMEMBER", rememberMe);
+        intent.putExtra("NOTE", note);
+        startActivity(intent);
+    }
+
+
     public void saveAppointmentData(){
         boolean isValid = true;
 
@@ -182,7 +193,13 @@ public class AddAppointment extends AppCompatActivity {
         AppointmentData appointmentData = new AppointmentData(title, dateDateTime, rememberMeDateTime, note, name);
         CSVHandler csvHandler = new CSVHandler();
         csvHandler.writeAppointmentCSV(this, appointmentData);
+
+            // Call the method to transition to OnAppointmentActivity with the entered data
+            goToOnAppointmentActivity(title, date, rememberMe, note);
         }
+
+
+
 
     }
     private void showMessageBox(String message) {

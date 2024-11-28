@@ -11,12 +11,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+<<<<<<< HEAD
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+=======
+import com.androidplot.pie.PieChart;
+import com.androidplot.pie.Segment;
+import com.androidplot.pie.PieSlice;
+import com.androidplot.ui.AnchorPosition;
+
+
+>>>>>>> 2c79acdf51ec419c9281ec64b664f0f6b1cb3c64
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
