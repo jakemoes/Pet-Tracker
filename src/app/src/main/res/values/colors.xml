@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main">#77C3A5</color>
     <color name="indicator_color">#B3D4C7</color>
+    <color name="delete">#000000</color>
 </resources>

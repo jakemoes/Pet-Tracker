@@ -54,7 +54,7 @@ public class Appointments extends AppCompatActivity {
                     startActivity(new Intent(Appointments.this, Welcome.class));
                     return true;
                 case R.id.course:
-                    startActivity(new Intent(Appointments.this, Welcome.class));
+                    startActivity(new Intent(Appointments.this, Trend.class));
                     return true;
                 case R.id.entry:
                     Intent startEntry = new Intent(Appointments.this, Entry.class);

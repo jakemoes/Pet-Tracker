@@ -9,11 +9,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -199,5 +201,50 @@ public void writeAnimalCSV(Context context, Animal animal){
             // Datei existiert nicht
             Toast.makeText(context, "Datei existiert nicht", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void saveAppointmentsToCSV(Context context, ArrayList<AppointmentData> appointments) {
+        File csvFile = new File(context.getFilesDir(), "appointment.csv");
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile))) {
+            for (AppointmentData appointment : appointments) {
+                String line = appointment.getTitel() + ";" +
+                        appointment.getDate().toString() + ";" +
+                        appointment.getRemeberDate().toString() + ";" +
+                        appointment.getNote() + ";" +
+                        appointment.getTitel();
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<EntryData> getEntriesFromCSV(Context context) {
+        ArrayList<EntryData> entries = new ArrayList<>();
+        File csvFile = new File(context.getFilesDir(), "entry.csv");
+
+        if (!csvFile.exists()) {
+            return entries; // leeren Liste rückgeben, wenn keine Datei vorhanden
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] entryData = line.split(";");
+                if (entryData.length == 7) {
+                    String note = entryData[0];
+                    String food = entryData[1];
+                    String vomit = entryData[2];
+                    String stool = entryData[3];
+                    LocalDate date = LocalDate.parse(entryData[4]);
+                    String name = entryData[5];
+                    entries.add(new EntryData(note, food, vomit, stool, date, name));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return entries;
     }
 }
