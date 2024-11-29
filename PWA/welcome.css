@@ -4,39 +4,43 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Inhalte beginnen oben */
     align-items: center;
     flex-direction: column;
     height: 100vh;
 }
 
 .container {
-    text-align: center;
+    text-align: left;
     width: 100%;
+    display: flex;
+    flex-direction: column; /* Reihenfolge der Elemente vertikal */
+    align-items: left; /* Zentriert horizontal */
+    justify-content: flex-start; /* Beginnt oben */
 }
 
 h1 {
+    position: relative;
     padding-left: 15px;
     font-size: 46px;
     text-align: left;
-    margin-bottom: 65px;
+    margin: 0; /* Abstand entfernen */
     color: #333;
-    position: relative; /* Setzt das Element relativ zum normalen Layout */
-    top: 50px; /* Verschiebt das Element nach unten */
+    top: 15px; /* Verschiebung zurücksetzen */
 }
 
 .button-list {
     display: flex; /* Flexbox aktivieren */
     flex-direction: column; /* Buttons vertikal anordnen */
     gap: 10px; /* Abstand zwischen den Buttons */
-    margin: 0 15px; /* Abstand zu allen Seiten */
-    width: calc(100% - 30px); /* Volle Breite minus 30px (15px links und rechts) */
-    height: calc(100vh - 30px); /* Höhe der Seite minus 30px für den Abstand oben und unten */
+    margin: 30px 15px; /* Abstand oben (kann angepasst werden) */
+    width: calc(100% - 30px); /* Volle Breite minus 30px */
+    height: auto; /* Höhe anpassen */
 }
 
 .item {
-    flex: 1; /* Alle Buttons gleich groß machen */
-    max-height: 60px; /* Optional: Maximale Höhe für Buttons festlegen */
+    flex: none; /* Keine automatische Größe */
+    height: 65px;
     display: flex;
     align-items: center; /* Zentriert den Inhalt vertikal */
     justify-content: start; /* Zentriert den Text horizontal */
@@ -56,8 +60,6 @@ h1 {
 }
 
 .add-button {
-    position: absolute;
-    margin-top: 20px;
     background-color: #4caf91;
     color: white;
     border: none;
@@ -67,14 +69,15 @@ h1 {
     font-size: 24px;
     cursor: pointer;
     display: flex; /* Flexbox aktivieren */
-    justify-content: center; /* Horizontale Zentrierung */
+    justify-content: center;
     align-items: center;
+    align-self: center; /* Zentriert den Button horizontal */
 }
 
-.button_top-right{
+.button_top-right {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 25px; /* Direkt oben */
+    right: 15px;
     background-color: #4caf91;
     color: white;
     border: none;
@@ -83,7 +86,7 @@ h1 {
     height: 40px;
     font-size: 24px;
     cursor: pointer;
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center; 
 }
