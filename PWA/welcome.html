@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Screen</title>
     <link rel="stylesheet" href="welcome.css">
     <script>
         function showMessage() {
             alert("Deleted all Animals!");  // Shows a simple alert message
         }
     </script>
+    <title>Willkommen</title>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome</h1>
-        <div class="button top-right" onclick="showMessage()">-</div>
-        <div href="add.html" class="button bottom-center">+</div>
-        <button class="custom-button">
-            <span class="icon">&#10003;</span> <!-- Checkmark icon -->
-            Custom Button
-        </button>
+        <h1>Willkommen</h1>
+        <div class="button_top-right" onclick="showMessage()">-</div>
+        <div class="button-list">
+            <button class="item">
+                <span class="icon">🐱</span> Katze 1
+            </button>
+            <button class="item">
+                <span class="icon">🐱</span> Katze 2
+            </button>
+            <button class="item">
+                <span class="icon">🐱</span> Katze 3
+            </button>
+            <button class="item">
+                <span class="icon">🐶</span> Hund 1
+            </button>
+            <button class="item">
+                <span class="icon">🐶</span> Hund 2
+            </button>
+        </div>
+        <button class="add-button">+</button>
     </div>
 </body>
 </html>

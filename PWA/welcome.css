@@ -1,48 +1,93 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f5f5;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
 }
 
 .container {
+    text-align: center;
     width: 100%;
-    height: 100%;
-    position: relative;
-    background-color: #f8f5f5;
 }
 
 h1 {
-    text-align: center;
-    margin: 20px;
-    color: #4a4a4a;
-    font-size: 50px;
+    padding-left: 15px;
+    font-size: 46px;
+    text-align: left;
+    margin-bottom: 65px;
+    color: #333;
+    position: relative; /* Setzt das Element relativ zum normalen Layout */
+    top: 50px; /* Verschiebt das Element nach unten */
 }
 
-.button {
+.button-list {
+    display: flex; /* Flexbox aktivieren */
+    flex-direction: column; /* Buttons vertikal anordnen */
+    gap: 10px; /* Abstand zwischen den Buttons */
+    margin: 0 15px; /* Abstand zu allen Seiten */
+    width: calc(100% - 30px); /* Volle Breite minus 30px (15px links und rechts) */
+    height: calc(100vh - 30px); /* Höhe der Seite minus 30px für den Abstand oben und unten */
+}
+
+.item {
+    flex: 1; /* Alle Buttons gleich groß machen */
+    max-height: 60px; /* Optional: Maximale Höhe für Buttons festlegen */
+    display: flex;
+    align-items: center; /* Zentriert den Inhalt vertikal */
+    justify-content: start; /* Zentriert den Text horizontal */
+    background-color: #4caf91;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.add-button {
+    position: absolute;
+    margin-top: 20px;
+    background-color: #4caf91;
+    color: white;
+    border: none;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background-color: #92c7b7;
-    color: white;
     font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
-    position: absolute;
+    display: flex; /* Flexbox aktivieren */
+    justify-content: center; /* Horizontale Zentrierung */
+    align-items: center;
 }
 
-.button.top-right {
+.button_top-right{
+    position: absolute;
     top: 20px;
     right: 20px;
+    background-color: #4caf91;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
 }
 
-.button.bottom-center {
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+button:hover {
+    background-color: #3b866e;
 }
