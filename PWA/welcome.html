@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="welcome.css">
+    <script>
+        function showMessage() {
+            alert("Deleted all Animals!");  //Respond to the user that all animals have been deleted
+        }
+    </script>
+    <title>Willkommen</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Willkommen</h1>
+        <div class="button_top-right" onclick="showMessage()">-</div>
+        <div class="button-list">
+            <button class="item" onclick="window.location.href='entry.html';">
+                <span class="icon">🐱</span> Katze 1
+            </button>
+            <button class="item" onclick="window.location.href='entry.html';">
+                <span class="icon">🐱</span> Katze 2
+            </button>
+            <button class="item" onclick="window.location.href='entry.html';">
+                <span class="icon">🐱</span> Katze 3
+            </button>
+            <button class="item" onclick="window.location.href='entry.html';">
+                <span class="icon">🐶</span> Hund 1
+            </button>
+            <button class="item" onclick="window.location.href='entry.html';">
+                <span class="icon">🐶</span> Hund 2
+            </button>
+        </div>
+        <a href="addAnimal.html" class="add-button">+</a>
+    </div>
+</body>
+</html>
