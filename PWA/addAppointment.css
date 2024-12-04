@@ -1,31 +1,43 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
     margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
 }
 
-.form-container {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
+h1 {
+    
+    position: relative;
+    font-size: 46px;
+    text-align: left;
+    margin-left: 15px;
     color: #333;
-    margin-bottom: 20px;
+
 }
 
 form {
     display: flex;
     flex-direction: column;
+    width: 100%; /* Form nimmt die volle Breite der Webseite ein */
+    padding: 0 15px; /* 15px Abstand an beiden Seiten */
+    box-sizing: border-box; /* Padding wird in der Breitenberechnung berücksichtigt */
+    max-width: 100%; /* Verhindert, dass das Formular breiter als der Bildschirm wird */
 }
 
 label {
@@ -35,11 +47,13 @@ label {
 }
 
 input, textarea {
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Abstand zwischen den Eingabefeldern */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px;
+    width: 100%; /* Eingabefelder und Textarea nehmen die volle Breite des Formulars ein */
+    box-sizing: border-box; /* Padding und Border werden in der Breitenberechnung berücksichtigt */
 }
 
 textarea {
@@ -47,9 +61,34 @@ textarea {
     height: 80px;
 }
 
+input[type="datetime-local"] {
+    font-family: Arial, sans-serif; /* Einheitliche Schriftart */
+    font-size: 16px; /* Schriftgröße */
+    color: #333; /* Textfarbe */
+    background-color: #FFF; /* Hintergrundfarbe */
+    border: 1px solid #ccc; /* Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken */
+    padding: 10px; /* Innenabstand */
+    box-sizing: border-box; /* Verhindert Überschreiten der Breite */
+    width: 100%; /* Volle Breite */
+    max-width: 100%; /* Maximalbreite verhindern */
+    height: 40px;
+    appearance: none; /* Entfernt die native Darstellung */
+    text-align: left;
+}
+
+/* Anpassung für iOS Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent; /* Hintergrund des Kalendersymbols */
+    color: #333; /* Farbe des Symbols (falls sichtbar) */
+    cursor: pointer; /* Cursor-Stil */
+}
+
 .button-container {
     display: flex;
     justify-content: space-between;
+    width: 100%; /* Container für Buttons nimmt die volle Breite des Formulars ein */
+    margin-top: 15px;
 }
 
 .cancel-btn, .done-btn {
@@ -58,7 +97,7 @@ textarea {
     padding: 10px 15px;
     font-size: 14px;
     cursor: pointer;
-    width: 48%;
+    width: 48%; /* Buttons nehmen jeweils 48% der Breite des Containers ein */
 }
 
 .cancel-btn {
@@ -78,4 +117,3 @@ textarea {
 .done-btn:hover {
     background-color: #66b398;
 }
-
