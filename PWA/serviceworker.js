@@ -53,7 +53,9 @@ self.addEventListener("install", event => {
   console.log("Service Worker Pet Tracker installing.");
   event.waitUntil(
       caches.open(cacheName).then(function(cache) {
+          console.log("Service Worker Pet Tracker caching app shell.");
         return cache.addAll(filesToCache);
+        console.log("Service Worker Pet Tracker cached app shell.");
       })
   );
 });
@@ -72,12 +74,14 @@ self.addEventListener('fetch', event => {
       caches.match(event.request).then(function(response) {
           // Wenn die Datei im Cache gefunden wird, gebe sie zurück.
           if (response) {
+            console.log("Service Worker Pet Tracker found in cache", response);
               return response;
           }
 
           // Wenn nicht, versuche, sie aus dem Netzwerk zu laden.
           return fetch(event.request).catch(() => {
               // Falls der Netzwerkzugriff fehlschlägt, gib eine Offline-Seite zurück.
+              console.log("Service Worker Pet Tracker offline");
               return caches.match('index.html');
           });
       })
