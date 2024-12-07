@@ -1,0 +1,28 @@
+{
+  "name": "PetTracker",
+  "short_name": "PetTracker",
+  "description": "Basic PWA for MSD students!",
+  "lang": "en-US",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "white",
+  "theme_color": "white",
+  "orientation": "any",
+  "icons": [{
+    "src": "img/lab05pwa48.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "img/lab05pwa72.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  }, {
+    "src": "img/lab05pwa96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "img/lab05pwa144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }]
+}

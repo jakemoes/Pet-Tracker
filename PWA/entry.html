@@ -4,7 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wie war der Tag?</title>
-    <link rel="stylesheet" href="entry.css">
+    
+     <!--anifest and Styles
+	  The manifest file lists all the information about the website in a JSON format und usually resides in the root folder of a web app -->
+      <link rel="manifest" href="manifest.json">
+      <link rel="stylesheet" href="css/entry.css">
+  
+      <!-- App Name -->
+      <meta name="Pet Tracker" content="Pet Tracker" />
+      <!-- On iOS, you can specify a web application title for the launch icon -->
+      <meta name="apple-mobile-web-app-petTracker" content="Pet Tracker" />
+  
+      <!-- Capability -->
+      <meta name="mobile-web-app-capable" content="yes" />
+      <!-- Hiding Safari User Interface Components in standalone mode-->
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+  
+      <!-- Starting URL -->
+      <meta name="msapplication-starturl" content="/index.html" />
+  
+      <!-- Theme/Display -->
+      <meta name="theme-color" content="#FBFBFB"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  
+      <!-- Icon for iOS 180x180 -->
+      <link rel="apple-touch-icon" href="img/touch-icon-iphone.png">
+  
+      <!-- Splash Screens for iOS -->
+      <link href="img/apple_splash_2048.png" sizes="2048x2732" rel="apple-touch-startup-image" />
+      <link href="img/apple_splash_1668.png" sizes="1668x2224" rel="apple-touch-startup-image" />
+      <link href="img/apple_splash_1536.png" sizes="1536x2048" rel="apple-touch-startup-image" />
+      <link href="img/apple_splash_1125.png" sizes="1125x2436" rel="apple-touch-startup-image" />
+      <link href="img/apple_splash_1242.png" sizes="1242x2208" rel="apple-touch-startup-image" />
+      <link href="img/apple_splash_750.png" sizes="750x1334" rel="apple-touch-startup-image" />
+      <link href="img/apple_splash_640.png" sizes="640x1136" rel="apple-touch-startup-image" />
 </head>
 <body>
     <div class="container">
@@ -42,12 +75,15 @@
     <footer>
         <nav>
             <ul class="nav-bar">
-                <li><a href="welcome.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">Eintragen</a></li>
                 <li><a href="trend.html">Verlauf</a></li>
                 <li><a href="appointment.html">Termine</a></li>
             </ul>
         </nav>
     </footer>
+     <!-- Scripts -->
+     <script src="use_serviceworker.js"></script>
+     <script src="main.js"></script>
 </body>
 </html>
