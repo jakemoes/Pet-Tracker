@@ -28,8 +28,7 @@ var filesToCache = [
   'appointments.html',
   'entry.html',
   'appointmentDetails.html',
-  'trend.html',
-  'trendSecond.html',
+  'trend.html'
   'css/welcome.css',
   'css/entry.css',
   'css/appointments.css',
