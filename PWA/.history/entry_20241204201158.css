@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 15px;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: flex-start; /* Start items from the top */
+    padding: 15px; /* Padding inside the container */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+h1 {
+    position: relative;
+    font-size: 46px;
+    text-align: left;
+    margin: 0; /* Abstand entfernen */
+    color: #333;
+}
+
+.form-group:first-of-type {
+    margin-top: 20px; /* Steuert den Abstand vom h1 zum ersten form-group */
+}
+
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #6ec9a6;
+    border-radius: 5px;
+    outline: none;
+    background-color: white; /* Ensures the background is white */
+    
+    box-sizing: border-box;
+}
+
+/* Style to remove the default dropdown arrow and add a custom one */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="10" height="6"><path d="M1 1l4 4 4-4" stroke="%23333" stroke-width="2"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position the custom arrow */
+    background-size: 10px;
+    color: black;
+}
+
+textarea {
+    height: 100px; /* Custom height for textarea */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+input:focus, select:focus {
+    border-color: #6ec9a6;
+}
+
+
+
+.save-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #66cdaa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+}
+
+.save-button:hover {
+    background-color: #57b38c;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #66cdaa;
+    padding: 10px 0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Volle Breite des Bildschirms */
+    background-color: #66cdaa; /* Sicherstellen, dass die Farbe gesetzt ist */
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0; /* Kein Außenabstand */
+    padding: 10px 0; /* Innenabstand */
+    z-index: 10; 
+}
+
+.nav-bar li {
+    text-align: center;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9em;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}

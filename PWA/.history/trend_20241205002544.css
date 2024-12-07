@@ -1,0 +1,15 @@
+.pie-chart {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient (
+        calc(var(--percentage, 0) * 1%),
+        transparent calc(var(--percentage, 0) * 1%)
+    )
+}
+
+.slice {
+    position: absolute;
+    isnet: 0;
+}

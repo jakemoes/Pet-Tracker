@@ -1,0 +1,133 @@
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+
+
+.container {
+    margin-top: 15px;
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: flex-start; /* Start items from the top */
+    padding: 15px; /* Padding inside the container */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 15px;
+    
+}
+
+
+h1 {
+    position: relative;
+    font-size: 46px;
+    text-align: left;
+    margin: 0; /* Abstand entfernen */
+    color: #333;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0px 250px;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.layer::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    transform-origin: 0px 250px;
+    top: 0;
+    left: 0;
+}
+ .layer:nth-child(1) {
+    background-color: aqua;
+    transform: translateX(250px) rotate(0deg);
+ }
+
+ .layer:nth-child(1)::before {
+    transform: rotate(100deg);
+ }
+
+ .layer:nth-child(2) {
+    background-color: rgb(131, 125, 184);
+    transform: translateX(250px) rotate(100deg);
+ }
+
+ .layer:nth-child(2)::before {
+    transform: rotate(160deg);
+ }
+
+ .layer:nth-child(3) {
+    background-color: rgb(54, 147, 147);
+    transform: translateX(250px) rotate(160deg);
+ }
+
+ .layer:nth-child(3)::before {
+    transform: rotate(180deg);
+ }
+
+ .layer:nth-child(4) {
+    background-color: aqua;
+    transform: translateX(250px) rotate(180deg);
+ }
+
+ .layer:nth-child(4)::before {
+    transform: rotate(20deg);
+ }
+
+ footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #66cdaa;
+    padding: 10px 0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Volle Breite des Bildschirms */
+    background-color: #66cdaa; /* Sicherstellen, dass die Farbe gesetzt ist */
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0; /* Kein Außenabstand */
+    padding: 10px 0; /* Innenabstand */
+    z-index: 10; 
+}
+
+.nav-bar li {
+    text-align: center;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9em;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}

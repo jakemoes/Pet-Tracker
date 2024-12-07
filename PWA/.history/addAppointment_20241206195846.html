@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addAppointment.css">
+    <title>Termin hinzufügen</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Termin hinzufügen</h1>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name">
+
+            <label for="datum">Datum</label>
+            <input type="datetime-local" id="datum" name="datetime">
+
+            <label for="erinnerung">Erinnerung</label>
+            <input type="datetime-local" id="erinnerung" name="erinnerung">
+
+            <label for="notiz">Notiz</label>
+            <textarea id="notiz" name="notiz" placeholder="Notiz"></textarea>
+
+            <div class="button-container">
+                <button type="action" onclick="appointment.html" class="cancel-btn">Cancel</button>
+                <button type="submit" class="done-btn">Done</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

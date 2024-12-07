@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px 0;
+}
+.entry {
+    background-color: #b9dfc9;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto; /* Abstand zwischen den Einträgen */
+    max-width: 600px; /* Begrenzte Breite */
+    text-align: left;
+}
+
+.entry h2 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.entry p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.entry strong {
+    font-weight: bold;
+}
+
+.icon {
+    position: absolute;
+    top: 40px;
+    right: 70px;
+}
+
+.icon img {
+    width: 50px;
+    height: 40px;
+}
+
+.entry {
+    background-color: #b9dfc9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.entry h2 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.entry p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.entry strong {
+    font-weight: bold;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #66cdaa;
+    padding: 10px 0;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Volle Breite des Bildschirms */
+    background-color: #66cdaa; /* Sicherstellen, dass die Farbe gesetzt ist */
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0; /* Kein Außenabstand */
+    padding: 10px 0; /* Innenabstand */
+    z-index: 10; 
+}
+
+.nav-bar li {
+    text-align: center;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9em;
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+}
